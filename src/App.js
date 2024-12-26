@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import AddEntityForm from "./components/AddEntityForm";
-import EntitiesList from "./components/EntitiesList";
-
 const App = () => {
   const [entities, setEntities] = useState([
     { id: "a1b2c3d4e5", category: "Laptops", name: "Dell Inspiron 15" },
@@ -13,11 +9,16 @@ const App = () => {
     setEntities((prevEntities) => [...prevEntities, newEntity]);
   };
 
+  // Handler to delete one or multiple entities by IDs
+  const handleDeleteEntity = (ids) => {
+    setEntities((prevEntities) => prevEntities.filter((entity) => !ids.includes(entity.id)));
+  };
+
   return (
     <div>
       <h1>SP Electronics Shop</h1>
       <AddEntityForm onAddEntity={handleAddEntity} />
-      <EntitiesList entities={entities} />
+      <EntitiesList entities={entities} onDeleteEntity={handleDeleteEntity} />
     </div>
   );
 };
