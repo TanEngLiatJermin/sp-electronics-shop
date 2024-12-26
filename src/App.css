@@ -1,47 +1,64 @@
+/* General Body Styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
+/* Container Styling */
+div {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Header */
 h1 {
   text-align: center;
   color: #333;
+  margin-bottom: 20px;
 }
 
+/* Form Styling */
 form {
-  margin: 20px auto;
-  padding: 10px;
-  max-width: 400px;
   background: #fff;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto 20px auto;
 }
 
 form div {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 form label {
   display: block;
-  margin-bottom: 5px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
-form input[type="text"],
-form button {
+form input[type="text"] {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
-  border-radius: 4px;
   border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 form button {
+  width: 100%;
   background-color: #007bff;
   color: #fff;
   border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -49,17 +66,17 @@ form button:hover {
   background-color: #0056b3;
 }
 
+/* Entity List */
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 20px auto;
-  max-width: 600px;
+  margin: 0;
 }
 
 ul li {
   background: #fff;
-  margin: 10px 0;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -67,8 +84,12 @@ ul li {
   align-items: center;
 }
 
+ul li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
 ul li span {
-  flex: 1;
+  flex-grow: 1;
 }
 
 ul li button {
@@ -82,4 +103,29 @@ ul li button {
 
 ul li button:hover {
   background-color: #a71d2a;
+}
+
+/* Filter Form */
+h3 {
+  margin-top: 20px;
+  color: #333;
+}
+
+div.filter-form {
+  margin: 20px auto;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+div.filter-form label {
+  margin-left: 5px;
+}
+
+div.filter-form div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
