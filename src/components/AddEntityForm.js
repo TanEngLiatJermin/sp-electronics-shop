@@ -1,35 +1,35 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid"; // Install UUID library using npm install uuid
+import { v4 as uuidv4 } from "uuid";
 
 const AddEntityForm = ({ onAddEntity }) => {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (category.trim() === "" || name.trim() === "") {
-      alert("Please fill in all fields!");
+    if (!category.trim() || !name.trim()) {
+      setError("Both fields are required!");
       return;
     }
 
-    // Create a new entity object
     const newEntity = {
-      id: uuidv4().slice(0, 10), // Generate a 10-character unique ID
+      id: uuidv4().slice(0, 10),
       category,
       name,
     };
 
-    // Pass the new entity to the parent component
     onAddEntity(newEntity);
 
-    // Reset the form
     setCategory("");
     setName("");
+    setError("");
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form onSubmit={handleSubmit}>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <div>
         <label>Category:</label>
         <input

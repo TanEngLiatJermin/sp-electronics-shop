@@ -2,6 +2,8 @@ import React, { useState } from "react"; // Import React and useState
 import AddEntityForm from "./components/AddEntityForm"; // Import AddEntityForm component
 import FilterEntitiesForm from "./components/FilterEntitiesForm"; // Import FilterEntitiesForm component
 import EntitiesList from "./components/EntitiesList"; // Import EntitiesList component
+import './App.css';
+
 
 const App = () => {
   const [entities, setEntities] = useState([
