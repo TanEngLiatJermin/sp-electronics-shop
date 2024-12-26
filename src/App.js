@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AddEntityForm from "./components/AddEntityForm";
+import EntitiesList from "./components/EntitiesList";
 
-function App() {
+const App = () => {
+  const [entities, setEntities] = useState([
+    { id: "a1b2c3d4e5", category: "Laptops", name: "Dell Inspiron 15" },
+    { id: "f6g7h8i9j0", category: "Smartphones", name: "iPhone 14" },
+  ]);
+
+  // Handler to add a new entity
+  const handleAddEntity = (newEntity) => {
+    setEntities((prevEntities) => [...prevEntities, newEntity]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>SP Electronics Shop</h1>
+      <AddEntityForm onAddEntity={handleAddEntity} />
+      <EntitiesList entities={entities} />
     </div>
   );
-}
+};
 
 export default App;
